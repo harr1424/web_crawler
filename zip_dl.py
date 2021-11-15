@@ -5,6 +5,11 @@ from bs4 import BeautifulSoup
 
 target_url = "Downloads Splash Page"  # example "https://domain.org/downloads/"
 
+parent_dir = "absolute path"  # declare the main directory for this batch download
+                            # "/Users/thomas/media/"
+                            # "c:\user\music\"
+
+
 headers = {  # Some sites prevent suspicious user-agent strings from sending requests, change as necessary
 
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:94.0) Gecko/20100101 Firefox/94.0',
@@ -30,11 +35,6 @@ def crawl():
             target_links.append(link['href'])
     target_links = list(set(target_links))
     return target_links
-
-
-parent_dir = "absolute path"  # declare the main directory for this batch download
-                            # "/Users/thomas/media/"
-                            # "c:\user\music\"
 
 
 def download(target_links):
