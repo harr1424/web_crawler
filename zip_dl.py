@@ -3,7 +3,7 @@ import re
 import os
 from bs4 import BeautifulSoup
 
-target_url = "Downloads Page URL"  # example "https://domain.org/downloads/"
+target_url = "Downloads Splash Page"  # example "https://domain.org/downloads/"
 
 headers = {  # Some sites prevent suspicious user-agent strings from sending requests, change as necessary
 
@@ -34,7 +34,7 @@ def crawl():
 
 parent_dir = "absolute path"  # declare the main directory for this batch download
                             # "/Users/thomas/media/"
-                            # "c:\music\" 
+                            # "c:\user\music\"
 
 
 def download(target_links):
@@ -48,13 +48,14 @@ def download(target_links):
         if not os.path.exists(dir_path):
             os.mkdir(dir_path)
         file_path = os.path.join(dir_path, file_name)
-        print("Downloading file:%s from %s" % (file_name, author))
-        response = requests.get(link, stream=True)
-        with open(file_path, "wb+") as f:
-            for chunk in response.iter_content(chunk_size=1024 * 1024):
-                if chunk:
-                    f.write(chunk)
-        print("%s downloaded!\n" % file_name)
+        if not os.path.isfile(file_path):
+            print("Downloading file:%s from %s" % (file_name, author))
+            response = requests.get(link, stream=True)
+            with open(file_path, "wb+") as f:
+                for chunk in response.iter_content(chunk_size=1024 * 1024):
+                    if chunk:
+                        f.write(chunk)
+            print("%s downloaded!\n" % file_name)
     print("All files downloaded!")
     return
 
