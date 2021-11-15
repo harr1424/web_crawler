@@ -27,12 +27,14 @@ def crawl():
         # regex below will find .zip files, change as appropriate
         download_links = soup.find_all('a', {'href': re.compile(r'.*.zip')})
         for link in download_links:
-            if link not in target_links:
-                target_links.append(link['href'])
+            target_links.append(link['href'])
+    target_links = list(set(target_links))
     return target_links
 
 
 parent_dir = "absolute path"  # declare the main directory for this batch download
+                            # "/Users/thomas/media/"
+                            # "c:\music\" 
 
 
 def download(target_links):
