@@ -2,6 +2,7 @@ import requests
 import re
 import os
 from bs4 import BeautifulSoup
+from tqdm import tqdm
 
 target_url = "Downloads Splash Page"  # example "https://domain.org/downloads/"
 
@@ -18,6 +19,7 @@ headers = {  # Some sites prevent suspicious user-agent strings from sending req
 
 def crawl():
     target_links = []
+    print("Crawling Main Page")
     response = requests.get(target_url, headers=headers)
     soup = BeautifulSoup(response.content, 'html5lib')
 
@@ -25,7 +27,8 @@ def crawl():
     indirect_links = soup.find_all('a', {'href': re.compile(r'/en.*-.*/')})
 
     authors = [link['href'] for link in indirect_links]
-    for each in authors:
+    print("Crawling Secondary Pages)
+    for each in tqdm(authors):
         response = requests.get(each, headers=headers)
         soup = BeautifulSoup(response.content, 'html5lib')
 
@@ -34,11 +37,14 @@ def crawl():
         for link in download_links:
             target_links.append(link['href'])
     target_links = list(set(target_links))
+    print(len(target_links), "Files available for download...")
     return target_links
 
 
 def download(target_links):
-    for link in target_links:
+          
+    print("Begining Downloads...")
+    for link in tqdm(target_links):
 
         # assuming files are in the format domain.org/downloads/author/file_name:
         author = link.split('/')[-2]
