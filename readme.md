@@ -4,16 +4,16 @@ This  python script was written to crawl a downloads page and download all .zip 
 
 ```
 --- Downloads 
-||
-||---Author A
+|
+|---Author A
 |  |
 |   --- file1.zip
 |   --- file2.zip
 | 
 |---Author B
-  |
-  --- file3.zip
-  --- file4.zip
+   |
+   --- file3.zip
+   --- file4.zip
 ```
   
 Running this script will download all .zip files organized in such a way. 
