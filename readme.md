@@ -16,7 +16,7 @@ This  python script was written to crawl a downloads page and download all .zip 
    --- file4.zip
 ```
   
-Running this script will download all .zip files organized in such a way. 
+Running this script will result in all .zip files being downloaded, as specified below. 
 
 
 ## Usage
