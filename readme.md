@@ -24,6 +24,3 @@ shown below should suffice for most purposes:
     indirect_links = soup.find_all('a', href=True)
 
 ```
-
-I hope this may be useful for you! I found the [this tuitorial](https://www.geeksforgeeks.org/downloading-files-web-using-python/)
-very helpful when getting started. 
