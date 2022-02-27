@@ -2,6 +2,7 @@
 
 This  python script was written to crawl a downloads page and download all .zip files, organized by the author's name. It assumes that media content is organized by author on a main download splash page, similar to below:
 
+```
 --- Downloads 
 ||
 ||---Author A
@@ -13,7 +14,7 @@ This  python script was written to crawl a downloads page and download all .zip 
   |
   --- file3.zip
   --- file4.zip
-  
+```
   
 Running this script will download all .zip files organized in such a way. 
 
