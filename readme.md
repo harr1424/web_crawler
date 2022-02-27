@@ -3,14 +3,14 @@
 This  python script was written to crawl a downloads page and download all .zip files, organized by the author's name. It assumes that media content is organized by author on a main download splash page, similar to below:
 
 ```
---- Downloads 
+--- Downloads (main page)
 |
-|---Author A
+|---Author A (subpage) 
 |  |
 |   --- file1.zip
 |   --- file2.zip
 | 
-|---Author B
+|---Author B (subpage)
    |
    --- file3.zip
    --- file4.zip
