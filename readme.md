@@ -30,8 +30,8 @@ on Windows something similar to 'C:\user\music\bulk_download\'.
 
 The crawl() function will request each page corresponding to each author
 (Author A, Author B, etc) and find all links ending in .zip. If you would 
-like to download a different file type, modify the regular expression on line 33. 
-Also note the regular expression on line 25, this was necessary for 
+like to download a different file type, modify the regular expression on line 35. 
+Also note the regular expression on line 27, this was necessary for 
 my intended use of this program, but you may need to change. Altering this line as 
 shown below should suffice for most purposes: 
 ```angular2html
